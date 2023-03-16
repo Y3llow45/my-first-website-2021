@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome | Image</title>
+        <link rel="icon" type="image/png" href="logo.png" sizes="100x100">
+        <link rel="stylesheet" type="text/css" href="site-css.css">
+
+    </head>
+    <body>
+        <div class="main">
+            <button class="dog"
+                onclick="document.getElementById('thePIC').src='dog.jpg'">dog</button>
+            <button class="cat"
+                onclick="document.getElementById('thePIC').src='cat.jpg'">cat</button>
+            <button class="bird"
+                onclick="document.getElementById('thePIC').src='bird.jpg'">bird</button>
+        </div>
+        <div class="second">
+            <h1 id="result">Change sepia</h1>
+            <div class="brightness-box">
+                <input type="range" id="slider1" min="0" max="200" value="100">
+            </div>
+            <h1 id="result2">Change blur</h1>
+            <div class="opacity-box">
+                <input type="range" id="slider2" min="0" max="10" value="10">
+            </div>
+            <h1 id="result3">Change grayscale</h1>
+            <div class="gray-box">
+                <input type="range" id="slider3" min="10" max="100" value="100">
+            </div>
+
+
+        </div>
+
+        <img src="cat.jpg" class="photo" id="thePIC">
+        <br>
+        <button class="goto404" onclick="location.href= '404.html';"
+            id="myButton">Check the 404 error page</button>
+        <br>
+        <br>
+        <br>
+        <h3>♡ I LOVE CATS AND DOGS ♡</h3>
+
+        <script>
+            var img = document.getElementById("thePIC");
+            
+            var slider1 = document.getElementById("slider1");
+            var slider2 = document.getElementById("slider2");
+            var slider3 = document.getElementById("slider3");
+            
+            var sepia = slider1.value;
+            var blur = slider2.value;
+            var grayscale = slider3.value;
+            
+            slider1.addEventListener("input", function(){
+                sepia = this.value;
+                img.style["-webkit-filter"] = "blur("+blur+"px) sepia(" + this.value + "%) grayscale("+grayscale+"%)";
+            });
+            
+            slider2.addEventListener("input", function(){
+                blur = this.value;
+                img.style["-webkit-filter"] = "blur(" + this.value + "px) sepia("+sepia+"%) grayscale("+grayscale+"%)";
+            });
+            
+            slider3.addEventListener("input", function(){
+                grayscale = this.value;
+                img.style["-webkit-filter"] = "blur("+blur+"px) sepia(" + sepia + "%) grayscale("+this.value+"%)";
+            });
+
+            
+            </script>
+    </body>
+</html>
